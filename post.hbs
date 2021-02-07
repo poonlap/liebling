@@ -17,6 +17,18 @@ This template is used for the post page.
 into the {body} of the default.hbs template --}}
 {{!< default}}
 
+{{#post}}
+  {{#has tag="#th"}}
+    {{#contentFor "lang"}}th{{/contentFor}}
+  {{else}}
+    {{#has tag="#ja"}}
+      {{#contentFor "lang"}}ja{{/contentFor}}
+        {{else}}
+      {{#contentFor "lang"}}{{@site.lang}}{{/contentFor}}
+    {{/has}}
+  {{/has}}
+ {{/post}}
+
 {{!-- Special header.hbs partial to generate the <header> tag --}}
 {{#post}}
   {{> header background=feature_image}}
