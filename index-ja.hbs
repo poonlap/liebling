@@ -26,7 +26,7 @@ into the {body} of the default.hbs template --}}
 {{#contentFor "lang"}}ja{{/contentFor}}
 
 {{!-- Special header.hbs partial to generate the <header> tag --}}
-{{> header background=@site.cover_image}}
+{{> header-ja background=@site.cover_image}}
 
 <main class="main-wrap">
   {{!-- Inject styles of the hero image to make it responsive --}}
@@ -47,7 +47,7 @@ into the {body} of the default.hbs template --}}
   <div class="l-content">
     <div class="l-wrapper" data-aos="fade-up" data-aos-delay="300">
       <div class="l-grid centered">
-        {{#get "posts" filter="featured:true" include="authors,tags" limit="5" as |featured|}}
+        {{#get "posts" filter="featured:true + tag:hash-ja" include="authors,tags" limit="5" as |featured|}}
           {{#if featured}}
             <div class="m-featured-slider glide js-featured-slider">
               <div class="glide__track" data-glide-el="track">

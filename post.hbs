@@ -31,7 +31,15 @@ into the {body} of the default.hbs template --}}
 
 {{!-- Special header.hbs partial to generate the <header> tag --}}
 {{#post}}
-  {{> header background=feature_image}}
+  {{#has tag="#th"}}
+    {{> header-th background=feature_image}}
+  {{else}}
+    {{#has tag="#ja"}}
+    {{> header-ja background=feature_image}}
+        {{else}}
+    {{> header background=feature_image}}
+    {{/has}}
+  {{/has}}
 {{/post}}
 
 <main class="main-wrap">
